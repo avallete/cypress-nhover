@@ -79,12 +79,17 @@ See [cypress/integration/spec.js](cypress/integration/spec.js)
 Those commands use `Cypress.automation('remote:debugger:protocol')` calls in background to dispatch MouseEvents
 as if user was really interacting with the Page.
 
+#### Common bugs:
+- Since it's simulating user interaction, interacting with the page during the tests (moving the mouse when
+ using `cypress open` during running tests) can mess up with assertions because of events race condition.
+- The Cypress 'replay' behavior doesn't take into account pseudo CSS class activation as a change,
+so you will not see the css change when "going back in time" between the different commands of your test. 
+
+
+#### Firefox support:
 Cypress doesn't currently have the support of this protocol for the Firefox browser.
 
 But since Firefox currently is implementing CDP under [Remote](https://wiki.mozilla.org/Remote), we can fairly assume that it's only a matter of time before this support come into Cypress. 
-
-Also since it's simulating user interaction, interacting with the page during the tests (mouving the mouse when using `cypress open` during running tests)
-can mess up with assertions because of events race condition.
 
 ## Roadmap
  - [ ] Add more real tests case scenarios
