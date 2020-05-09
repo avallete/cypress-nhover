@@ -1,4 +1,4 @@
-# cypress-nhover [![CircleCI](https://circleci.com/gh/avallete/cypress-nhover.svg?style=svg&circle-token=c1c1eb7da56fcc8a49b96e7155161728987f9878)](https://circleci.com/gh/avallete/cypress-nhover) [![renovate-app badge][renovate-badge]][renovate-app]
+# cypress-nhover [![CircleCI](https://circleci.com/gh/avallete/cypress-nhover.svg?style=svg&circle-token=987db2b47506cc91bb05e0671eeaf0f0c8cfe25e)](https://circleci.com/gh/avallete/cypress-nhover) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > Add nhover (NativeHover) and nmove (NativeMove) command to [Cypress.io](https://www.cypress.io) test runner.
 > Use [CDP](https://chromedevtools.github.io/devtools-protocol/) in background to create a "real" hover on 
