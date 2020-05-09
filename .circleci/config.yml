@@ -1,0 +1,19 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.21.0
+jobs:
+  release:
+    executor: cypress/base-10
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run semantic-release
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          - executor: cypress/browsers-chrome69
+          - browser: chrome
+      - release:
+          requires:
+            - cypress/run

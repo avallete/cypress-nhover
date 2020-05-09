@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<style>
+    button {
+        background-color: rgb(0, 0, 255);
+        padding: 10px;
+    }
+
+    button:hover {
+        background-color: rgb(255, 0, 0);
+    }
+</style>
+<body>
+<div style="padding-left: 100px; padding-top: 10px">
+    <button id="hoverButton"
+            onmousedown="appendEvent('onmousedown', '#hoverButton')"
+            onmouseenter="appendEvent('onmouseenter', '#hoverButton')"
+            onmouseleave="appendEvent('onmouseleave', '#hoverButton')"
+            onmousemove="appendEvent('onmousemove', '#hoverButton')"
+            onmouseout="appendEvent('onmouseout', '#hoverButton')"
+            onmouseover="appendEvent('onmouseover', '#hoverButton')"
+            onmouseup="appendEvent('onmouseup', '#hoverButton')"
+    >Hover me !
+    </button>
+</div>
+<div>
+    <div style="height: 100px; width: 500px; overflow: scroll">
+        <div id="containerScrolledButton"
+             onmousedown="appendEvent('onmousedown', '#containerScrolledButton')"
+             onmouseenter="appendEvent('onmouseenter', '#containerScrolledButton')"
+             onmouseleave="appendEvent('onmouseleave', '#containerScrolledButton')"
+             onmousemove="appendEvent('onmousemove', '#containerScrolledButton')"
+             onmouseout="appendEvent('onmouseout', '#containerScrolledButton')"
+             onmouseover="appendEvent('onmouseover', '#containerScrolledButton')"
+             onmouseup="appendEvent('onmouseup', '#containerScrolledButton')"
+             style="height: 500px; width: 500px; background-color: aqua"></div>
+        <button id="scrolledButton"
+                onmousedown="appendEvent('onmousedown', '#scrolledButton')"
+                onmouseenter="appendEvent('onmouseenter', '#scrolledButton')"
+                onmouseleave="appendEvent('onmouseleave', '#scrolledButton')"
+                onmousemove="appendEvent('onmousemove', '#scrolledButton')"
+                onmouseout="appendEvent('onmouseout', '#scrolledButton')"
+                onmouseover="appendEvent('onmouseover', '#scrolledButton')"
+                onmouseup="appendEvent('onmouseup', '#scrolledButton')"
+        >Scroll hover me !
+        </button>
+    </div>
+</div>
+<div>
+    <button id="nonVisibleButton" style="display: none">InvisibleButton</button>
+</div>
+<div id="logging">
+    <p>Fired events:</p>
+</div>
+<script>
+    const logging = document.getElementById("logging");
+
+    function appendEvent(name, element) {
+        let p = document.createElement("p");
+        p.innerHTML = `${name} on ${element}`;
+        logging.appendChild(p);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "cypress-nhover",
+  "version": "0.0.0-development",
+  "description": "Add nhover (NativeHover) command to test runner",
+  "main": "src",
+  "scripts": {
+    "test": "cypress run",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avallete/cypress-nhover.git"
+  },
+  "keywords": [
+    "cypress",
+    "cypress-io",
+    "hover",
+    "native",
+    "nhover"
+  ],
+  "files": [
+    "src"
+  ],
+  "author": "Andrew Valleteau <avallete@student.42.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avallete/cypress-nhover/issues"
+  },
+  "homepage": "https://github.com/avallete/cypress-nhover#readme",
+  "devDependencies": {
+    "cypress": "4.5.0",
+    "semantic-release": "15.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
