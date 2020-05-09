@@ -3,6 +3,7 @@
 > Add nhover (NativeHover) and nmove (NativeMove) command to [Cypress.io](https://www.cypress.io) test runner.
 > Use [CDP](https://chromedevtools.github.io/devtools-protocol/) in background to create a "real" hover on 
 > elements in a [puppeteer'ish](https://github.com/puppeteer/puppeteer/) way.
+ 
 
 ## Install
 
@@ -16,8 +17,8 @@ Then include in your project's `cypress/support/index.js`
 require('cypress-nhover')
 ```
 
-## Use
-
+## Usage
+### nhover:
 After installation, your `cy` object will have `.nhover` child command.
 
 `.nhover` command must be chained from a command yielding an HTMLElement.
@@ -52,6 +53,24 @@ it('dont explicilty scollIntoView', () => {
 ```
 
 **note:** This hover implementation work more or less in the same way as the one implemented by puppeteer and discussed [here](https://github.com/cypress-io/cypress/issues/10#issuecomment-559829533)
+
+
+### nmove:
+This package come with another new command: `nmove`. The main goal of `.nmove` is to provide an easy way to "unhover" an
+element hovered with the `.nhover` command.
+
+Ex:
+```js
+it('Should hover and unhover my element', () => {
+  cy.get('#hoverButton')
+    .should('have.css', 'background-color', 'rgb(0, 0, 255)')   // element isn't hovered and background-color is blue
+    .nhover()
+    .should('have.css', 'background-color', 'rgb(255, 0, 0)')   // :hover pseudo class active, background-color is red
+    .nmove({x: 0, y: 0})                                        // move the mouse cursor to the top left of the window
+    .should('have.css', 'background-color', 'rgb(0, 0, 255)');  // :hover pseudo isn't active anymore
+})
+```
+__________________________
 
 See [cypress/integration/spec.js](cypress/integration/spec.js)
 
