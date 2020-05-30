@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/avallete/cypress-nhover#readme",
   "devDependencies": {
-    "cypress": "4.6.0",
+    "cypress": "4.7.0",
     "semantic-release": "17.0.8"
   },
   "publishConfig": {
