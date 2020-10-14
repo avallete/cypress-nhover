@@ -12,6 +12,9 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          post-install:
+            - run: apt-get update
+            - run: apt-get install -y libgbm-dev
           executor: cypress/browsers-chrome69
           browser: chrome
       - release:
