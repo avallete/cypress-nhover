@@ -1,3 +1,11 @@
+# Deprecated
+
+This package is no longer supported, please use [cypress-real-events](https://github.com/dmtrKovalenko/cypress-real-events) `realHover` command instead.
+
+The entire test suite of this package has been tested on `realHover`, the two commands are entierly interchangeable (see: [this commit](https://github.com/avallete/cypress-real-events/commit/dfdb32a69767246d4db0fe569512dd634cf5af59)).
+Except for ONE detail: `realHover` doesn't throw you an error if the element you trying to hover isn't visible.
+
+
 # cypress-nhover [![CircleCI](https://circleci.com/gh/avallete/cypress-nhover.svg?style=svg&circle-token=987db2b47506cc91bb05e0671eeaf0f0c8cfe25e)](https://circleci.com/gh/avallete/cypress-nhover) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > Add nhover (NativeHover) and nmove (NativeMove) command to [Cypress.io](https://www.cypress.io) test runner.
