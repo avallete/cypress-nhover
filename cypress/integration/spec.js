@@ -64,17 +64,22 @@ describe('cypress-nhover', () => {
                 cy.get('#logging').contains('onmouseout on #scrolledButton').should('not.exist');
                 cy.get('#logging').contains('onmouseleave on #scrolledButton').should('not.exist');
             });
-            // TODO: Test the error case when I find out the syntax to catch them
-            // it('should return an error when trying to hover an non visible element', () => {
-            //     cy.get('#nonVisibleButton').nhover();
-            //     expect(spy).to.be.called;
-            //     expect(spy).to.have.thrown(new Error('Cannot hover a non-visible or 0 sized element'));
-            // });
-            // it('should return an error if the element is too small to be pointed', () => {
-            //     cy.get('#nonVisibleButton').nhover();
-            //     expect(spy).to.be.called;
-            //     expect(spy).to.have.thrown(new Error('Cannot hover a non-visible or 0 sized element'));
-            // });
+            it('should return an error when trying to hover an non visible element', (done) => {
+                cy.on('fail', (err, _) => {
+                    expect(err.message).to.include('Cannot hover a non-visible or 0 sized element')
+                    done()
+                    return false
+                });
+                cy.get('#nonVisibleButton').nhover();
+            });
+            it('should return an error when trying to hover an 0px element', (done) => {
+                cy.on('fail', (err, _) => {
+                    expect(err.message).to.include('Cannot hover a non-visible or 0 sized element')
+                    done()
+                    return false
+                });
+                cy.get('#tooSmallButton').nhover();
+            });
         });
     })
     context('nmove tests', () => {
