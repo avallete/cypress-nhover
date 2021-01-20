@@ -1,3 +1,4 @@
 {
-  "ignoreTestFiles": "*.html"
+  "ignoreTestFiles": "*.html",
+  "retries": 2
 }
